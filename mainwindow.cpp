@@ -179,6 +179,5 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
         }
 
     }
-
 }
 
