@@ -28,9 +28,15 @@ private slots:
 
     void on_progressBtn_clicked();
 
-    void mousePressEvent(QMouseEvent *event);
+    //鼠标右键重写
+    void mousePressEvent(QMouseEvent *event) override;
 
-    void closeEvent(QCloseEvent* ev);
+    //窗口关闭事件重写
+    void closeEvent(QCloseEvent* ev) override;
+
+    //回车不换行
+    bool eventFilter(QObject* watched,QEvent *event) override;
+    //bool eventFilter(QObject *watched, QEvent *event);
 
 private:
     Ui::MainWindow *ui;

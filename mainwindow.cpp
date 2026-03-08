@@ -134,6 +134,8 @@ void MainWindow::on_progressBtn_clicked()
     });
 
     time->start(50);
+
+    ui->textEdit->installEventFilter(this);
 }
 //在窗口添加右键菜单
 void MainWindow::mousePressEvent(QMouseEvent *event)
@@ -163,5 +165,20 @@ void MainWindow::closeEvent(QCloseEvent *ev)
     else{
         ev->ignore();
     }
+}
+
+bool MainWindow::eventFilter(QObject *watched, QEvent *event)
+{
+    if(watched == ui->textEdit && event->type() == QEvent::KeyPress){
+        QKeyEvent* keyEv = (QKeyEvent*)event;
+        if(keyEv->key() == Qt::Key_Enter ||         // 小键盘确认
+            keyEv->key() == Qt::Key_Return)     // 大键盘回车
+        {
+            qDebug() << "我是回车, 被按下了...";
+            return true;
+        }
+
+    }
+
 }
 
