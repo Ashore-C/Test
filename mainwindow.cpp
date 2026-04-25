@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     qDebug() <<"a2的引用计数为" <<a2.use_count();
     qDebug() <<"a3的引用计数为" <<a3.use_count();
     qDebug() <<"a4的引用计数为" <<a4.use_count();
-
+    qDebug() <<"a5的引用计数为" <<a4.use_count();
 
     QTimer * t = new QTimer(this);
 
